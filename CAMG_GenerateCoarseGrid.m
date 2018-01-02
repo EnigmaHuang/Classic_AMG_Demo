@@ -1,6 +1,10 @@
 function is_coarse_grid_point = CAMG_GenerateCoarseGrid(A)
 % Generate a "coarse grid" in Classic AMG with "fine grid" A
 % is_coarse_grid_point[i] = 1 if grid point i is a coarse grid point
+%                    !!! NOTICE !!! 
+% The "Second pass" is not included, since "Researchers later found 
+% that the second pass leads to high computational costs, and they 
+% have largely abandoned it in favor of other approaches."
 	n = size(A, 1);
 	edge_list = (A ~= 0);
 	edge_list = edge_list - diag(diag(edge_list));  % Remove the diagonal 
