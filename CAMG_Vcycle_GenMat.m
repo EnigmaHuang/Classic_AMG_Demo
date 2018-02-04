@@ -18,6 +18,9 @@ function [A_list, P_list, max_level] = CAMG_Vcycle_GenMat(A, direct_n)
 		level = level + 1;
 		A = CA;
 		n = size(A, 1);
+		
+		nnz_ratio = nnz(A) / (size(A, 1) * size(A, 2));
+		fprintf('Level %d, matrix size = %d,\t non-zero percentage = %2.4f \n', level, size(A, 1), nnz_ratio * 100.0);
 	end
 	max_level = level;
 end

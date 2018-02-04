@@ -29,7 +29,6 @@ function [x, vcycle_cnt, rel_res] = Multigrid_Solver(A, b, smoother, pre_steps, 
 	% Generate coefficient matrices and interpolation operators of each level at once
 	tic;
 	[A_list, P_list, max_level] = CAMG_Vcycle_GenMat(A, direct_n);
-	fprintf('Minimum size of A in V-cycle = %d, total level = %d\n', direct_n, max_level);
 	gm_t = toc;
 	
 	% Repeat V-cycle until converge
